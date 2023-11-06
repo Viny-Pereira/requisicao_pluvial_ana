@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import filedialog
 from dados_requisicao import DadosRequisicao
 import webbrowser
 
@@ -58,12 +59,18 @@ class InterfaceUsuario:
         data_fim = self.data_fim_entry.get()
 
         dados_requisicao = DadosRequisicao()
-        resultado = dados_requisicao.obter_dados_hidrologicos(cod_estacao, data_inicio, data_fim)
 
-        if resultado and resultado.endswith(".csv"):
-            mensagem = f"Os dados foram salvos em '{resultado}'."
+        # Abre a caixa de diálogo para escolher a pasta e o nome do arquivo
+        file_path = filedialog.asksaveasfilename(defaultextension=".csv", filetypes=[("Arquivos CSV", "*.csv")])
+
+        if file_path:
+            resultado = dados_requisicao.obter_dados_hidrologicos(cod_estacao, data_inicio, data_fim, nome_arquivo_saida=file_path)
+            if resultado and resultado.endswith(".csv"):
+                mensagem = f"Os dados foram salvos em '{resultado}'."
+            else:
+                mensagem = resultado
         else:
-            mensagem = resultado
+            mensagem = "Operação de salvamento cancelada pelo usuário."
 
         self.mensagem_label.config(text=mensagem)
 
