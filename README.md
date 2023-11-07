@@ -22,4 +22,4 @@ pip install -r requirements.txt
 - Inserir data de inicio da análise (Não inserir, pega desde a primeira coleta cadastrada)
 - Inserir data de fim da análise (Não inserir, pega até a ultima coleta cadastrada)
 - Selecionar o tipo de dados (Cotas/Chuvas/Vazões)
-- Selecionar Nível de consistência (Bruto/Consistido)
+- Selecionar Nível de consistência (Bruto (Padrão)/Consistido)
