@@ -21,3 +21,5 @@ pip install -r requirements.txt
 - Inserir ID do reservatorio (Obtido no Site da ANA)
 - Inserir data de inicio da análise (Não inserir, pega desde a primeira coleta cadastrada)
 - Inserir data de fim da análise (Não inserir, pega até a ultima coleta cadastrada)
+- Selecionar o tipo de dados (Cotas/Chuvas/Vazões)
+- Selecionar Nível de consistência (Bruto/Consistido)
