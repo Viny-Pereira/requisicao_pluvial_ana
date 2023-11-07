@@ -3,8 +3,8 @@ import csv
 import xml.etree.ElementTree as ET
 
 class DadosRequisicao:
-    def obter_dados_hidrologicos(self, cod_estacao, data_inicio, data_fim, nome_arquivo_saida="dados_hidrologicos"):
-        url = f"https://telemetriaws1.ana.gov.br/ServiceANA.asmx/HidroSerieHistorica?codEstacao={cod_estacao}&dataInicio={data_inicio}&dataFim={data_fim}&tipoDados=2&nivelConsistencia=1"
+    def obter_dados_hidrologicos(self, cod_estacao, data_inicio, data_fim,tipo_dados=2,nivel_consistencia = 1, nome_arquivo_saida="dados_hidrologicos"):
+        url = f"https://telemetriaws1.ana.gov.br/ServiceANA.asmx/HidroSerieHistorica?codEstacao={cod_estacao}&dataInicio={data_inicio}&dataFim={data_fim}&tipoDados={tipo_dados}&nivelConsistencia={nivel_consistencia}"
 
         # Realizar a solicitação HTTP GET
         response = requests.get(url)
@@ -34,7 +34,7 @@ class DadosRequisicao:
                 data_list.append(data)
 
             # Acrescentar a extensão .csv ao nome do arquivo de saída
-            nome_arquivo_saida = f"{nome_arquivo_saida}.csv"
+            nome_arquivo_saida = f"{nome_arquivo_saida}"
 
             # Escrever os dados para o arquivo de saída especificado
             with open(nome_arquivo_saida, "w", newline="") as csvfile:
