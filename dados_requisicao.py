@@ -46,3 +46,16 @@ class DadosRequisicao:
             return nome_arquivo_saida
         else:
             return f"Erro: A solicitação GET não foi bem-sucedida. Código de status: {response.status_code}"
+
+
+if __name__ == "__main__":
+    cod_estacao = "00539053"
+    data_inicio = ""
+    data_fim = ""
+    tipo_dados = 2  # Tipo de dados (por exemplo, 2 para chuvas)
+    nivel_consistencia = 1  # Nível de consistência (por exemplo, 1 para bruto)
+    nome_arquivo_saida = "dados.csv"
+
+    dados = DadosRequisicao()
+    arquivo_saida = dados.obter_dados_hidrologicos(cod_estacao, data_inicio, data_fim,tipo_dados,nivel_consistencia, nome_arquivo_saida)
+    print(f"Arquivo de saída: {arquivo_saida}")
