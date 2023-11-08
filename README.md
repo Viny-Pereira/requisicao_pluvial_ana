@@ -39,3 +39,8 @@ pip install -r requirements.txt
 
 ## Saida
 - Ambas as formas terão como retorno um arquivo .csv
+
+
+## Executável
+
+- Dentro da pasta dist existe o arquivo main.exe, que pode ser executado sem a presença do python. 
